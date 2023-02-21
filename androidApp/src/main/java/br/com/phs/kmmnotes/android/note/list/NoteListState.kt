@@ -1,4 +1,4 @@
-package br.com.phs.kmmnotes.android.notelist
+package br.com.phs.kmmnotes.android.note.list
 
 import br.com.phs.kmmnotes.domain.note.Note
 

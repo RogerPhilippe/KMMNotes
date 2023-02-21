@@ -1,4 +1,4 @@
-package br.com.phs.kmmnotes.android.notelist
+package br.com.phs.kmmnotes.android.note.list
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

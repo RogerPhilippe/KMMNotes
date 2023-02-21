@@ -1,4 +1,4 @@
-package br.com.phs.kmmnotes.android.notelist
+package br.com.phs.kmmnotes.android.note.list
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -24,10 +24,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import br.com.phs.kmmnotes.presentation.NOTE_DETAILS
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun NoteListScreen(viewModel: NoteListViewModel = hiltViewModel()) {
+fun NoteListScreen(
+    navController: NavController,
+    viewModel: NoteListViewModel = hiltViewModel()
+) {
 
     val state by viewModel.state.collectAsState()
 
@@ -39,7 +44,7 @@ fun NoteListScreen(viewModel: NoteListViewModel = hiltViewModel()) {
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-
+                          navController.navigate("$NOTE_DETAILS/-1L")
                 },
                 backgroundColor = Color.Black
             ) {
@@ -93,7 +98,7 @@ fun NoteListScreen(viewModel: NoteListViewModel = hiltViewModel()) {
                         note = note,
                         backgroundColor = Color(note.colorHex),
                         onNoteClick = {
-
+                            navController.navigate("${NOTE_DETAILS}/${note.id}")
                         },
                         onDeleteClick = {
                             viewModel.deleteNoteById(note.id!!)
